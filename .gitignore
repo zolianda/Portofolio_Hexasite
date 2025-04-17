@@ -28,3 +28,11 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+
+/bootstrap/cache/*.php
+/storage/*.key
+/storage/*.log
+/storage/framework/**
+/storage/logs/**
+/database/database.sqlite
+
