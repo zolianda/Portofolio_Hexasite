@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HexaSite - Digital Solutions</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Reset dan style dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-image: url("asset/");
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .logo-subtext {
+      font-size: 12px;
+      color: #666;
+      margin-left: 5px;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #6b34eb;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #6b34eb;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .contact-btn {
+      background-color: #6b34eb;
+      color: white !important;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid #6b34eb;
+    }
+
+    .contact-btn:hover {
+      background-color: #5925d5;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(107, 52, 235, 0.3);
+    }
+
+    .contact-btn::after {
+      display: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background-color: #f0f3ff;
+      border-radius: 0 0 50% 50% / 100%;
+      z-index: -1;
+    }
+
+    .hero-content {
+      flex: 1;
+      padding-right: 40px;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-title span {
+      display: block;
+      color: #6b34eb;
+      animation: colorPulse 3s infinite alternate;
+    }
+
+    .hero-description {
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 15px;
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .primary-btn {
+      background-color: #6b34eb;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .primary-btn:hover {
+      background-color: #5925d5;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(107, 52, 235, 0.3);
+    }
+
+    .secondary-btn {
+      background-color: transparent;
+      color: #333;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      border: 2px solid #ddd;
+    }
+
+    .secondary-btn:hover {
+      border-color: #6b34eb;
+      color: #6b34eb;
+      transform: translateY(-2px);
+    }
+
+    .browser-mockup {
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      width: 450px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red {
+      background-color: #ff5f57;
+    }
+
+    .dot-yellow {
+      background-color: #febc2e;
+    }
+
+    .dot-green {
+      background-color: #28c840;
+    }
+
+    .browser-content {
+      background-color: #f5f7ff;
+      border-radius: 4px;
+      padding: 10px;
+      height: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .content-line {
+      height: 15px;
+      background-color: #e4e9f7;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    .content-line.short {
+      width: 70%;
+    }
+
+    .content-button {
+      background-color: #6b34eb;
+      height: 30px;
+      width: 100px;
+      border-radius: 4px;
+      margin-top: 15px;
+    }
+
+    .content-block {
+      height: 40px;
+      background-color: #e4e9f7;
+      border-radius: 4px;
+      width: 48%;
+      display: inline-block;
+      margin: 1%;
+    }
+
+    .services {
+      text-align: center;
+      padding: 40px;
+      background-color: rgba(93, 23, 235, 255);
+    }
+
+    .service-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      /* Biar responsif di layar kecil */
+      margin-top: 20px;
+      align-items: center;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      height: 200px;
+      width: 200px;
+      transition: transform 0, 5s;
+      text-align: center;
+      box-shadow: 0px 4px 12px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      color: black;
+    }
+
+    .service-card h3 {
+      margin: 1px;
+    }
+
+    .service-card p {
+      margin: 10px;
+    }
+
+
+    .development-icon {
+      margin: 20px 0 0 0;
+      padding: 10px;
+      width: 30px;
+      /* background-color: rgba(93,23,234,255); */
+      /* border-radius: 20px ; */
+
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    .footer {
+      background: linear-gradient(to right, #5a17d6, #8145e5);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.5), #fff);
+      animation: shimmer 3s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+      margin-bottom: 30px;
+      padding: 0 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s forwards;
+    }
+
+    .footer-column:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .footer-column:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .footer-column:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .footer-column:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer-logo h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .footer-logo p {
+      font-size: 12px;
+      margin: 0;
+      letter-spacing: 2px;
+      opacity: 0.8;
+    }
+
+    .footer-tagline {
+      margin: 15px 0;
+      font-size: 14px;
+      max-width: 260px;
+      line-height: 1.6;
+    }
+
+    .social-icons {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      margin-right: 10px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+      background: #fff;
+      color: #5a17d6;
+      transform: translateY(-3px);
+    }
+
+    .footer h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 30px;
+      height: 3px;
+      background: #fff;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .footer-column:hover h4::after {
+      width: 60px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .footer-links a::before {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+      padding-left: 5px;
+    }
+
+    .footer-links a:hover::before {
+      width: 100%;
+    }
+
+    .newsletter-form {
+      display: flex;
+      margin-top: 15px;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+    }
+
+    .newsletter-form button {
+      background: #fff;
+      color: #5a17d6;
+      border: none;
+      padding: 0 20px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #f0f0f0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom .footer-container {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 13px;
+      margin: 0;
+      opacity: 0.8;
+    }
+
+    .footer-bottom-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 13px;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #fff;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .footer-column {
+        flex-basis: 50%;
+      }
+
+      .footer-bottom .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-bottom-links {
+        margin-top: 10px;
+      }
+
+      .footer-bottom-links a {
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .footer-column {
+        flex-basis: 100%;
+      }
+    }
+
+    /* FontAwesome Icons - Make sure to include the FontAwesome library in your main HTML */
+    /* Add this to your main HTML head section:
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+*/
+
+
+    /* Animasi */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes colorPulse {
+      0% {
+        color: blue;
+      }
+
+      50% {
+        color: blue;
+      }
+
+      100% {
+        color: #6b34eb;
+      }
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .btn-container {
+        justify-content: center;
+      }
+
+      .browser-mockup {
+        width: 100%;
+        max-width: 450px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">
+        <h1 class="logo-text">HexaSite</h1>
+        <span class="logo-subtext">DIGITAL SOLUTIONS</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#" class="contact-btn">Login</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2 class="hero-title">Transforming Ideas Into Digital <span>Experiences</span></h2>
+        <p class="hero-description">HexaSite creates cutting-edge websites and digital solutions that help
+          businesses thrive in the modern digital landscape.</p>
+        <div class="btn-container">
+          <a href="#" class="primary-btn">Our Work</a>
+          <a href="#" class="secondary-btn">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="browser-mockup">
+          <div class="browser-dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="browser-content">
+            <div class="content-line"></div>
+            <div class="content-line short"></div>
+            <div class="content-line"></div>
+            <div class="content-button"></div>
+            <div class="content-block"></div>
+            <div class="content-block"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- our service  -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-container">
+      <div class="service-card">
+        <img src="assets/web-development-svgrepo-com.svg" alt class="development-icon">
+        <h3>Web Development</h3>
+        <p>Custom websites and web applications built for you.</p>
+      </div>
+      <div class="service-card">
+        <img src="assets/user-speak-svgrepo-com.svg" alt class="development-icon">
+        <h3>UI/UX Design</h3>
+        <p>User-centered design that enhances business
+          performance.</p>
+      </div>
+      <div class="service-card">
+        <img src="assets/megaphone-speaker-svgrepo-com.svg" alt class="development-icon">
+        <h3>Digital Marketing</h3>
+        <p>Strategic marketing solutions to increase your online
+          presence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Project -->
+  <section class="featured">
+    <h2>Featured Projects</h2>
+    <div class="featured-container">
+      <div class="project-card">
+        <div class="project-header">
+          <h2 class="project-title">BrightMart</h2>
+          <p class="project-description">E-commerce platform with inventory manager</p>
+        </div>
+        <div class="project-footer">
+          <span class="tag">E-commerce</span>
+          <span class="tag">React</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h2 class="project-title">EduSmart</h2>
+          <p class="project-description">Educational platform connecting administrators</p>
+        </div>
+        <div class="project-footer">
+          <span class="tag">Education</span>
+          <span class="tag">Laravel</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h2 class="project-title">HealthConnect</h2>
+          <p class="project-description">Telemedicine app with appointment scheduling</p>
+        </div>
+        <div class="project-footer">
+          <span class="tag">Healthcare</span>
+          <span class="tag">Flutter</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</html>
+
+
+<!-- Footer HTML -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <div class="footer-logo">
+        <h3>HexaSite</h3>
+        <p>DIGITAL SOLUTIONS</p>
+      </div>
+      <p class="footer-tagline">Transforming ideas into exceptional digital experiences</p>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">UI/UX Design</a></li>
+        <li><a href="#">Digital Marketing</a></li>
+        <li><a href="#">Mobile Apps</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Stay Updated</h4>
+      <p>Subscribe to our newsletter for the latest updates</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-container">
+      <p>&copy; 2025 HexaSite Digital Solutions. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+
+</html>

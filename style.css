@@ -1,0 +1,127 @@
+:root {
+    --pr-color: rgba(93, 23, 235, 255);
+}
+
+body {
+    font-family: "roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.services {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--pr-color);
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Biar responsif di layar kecil */
+    margin-top: 20px;
+    align-items: center;
+}
+
+.service-card {
+    background-color: white;
+    border-radius: 10px;
+    height: 200px;
+    width: 200px;
+    transition: transform 0, 5s;
+    text-align: center;
+    box-shadow: 0px 4px 12px;
+}
+
+.service-card:hover {
+    background: linear-gradient(160deg, var(--pr-color), rgb(58, 58, 58));
+    color: white;
+    transition: all .2s ease-in;
+
+}
+
+.service-card h3 {
+    margin: 1px;
+}
+
+.service-card p {
+    margin: 10px;
+}
+
+
+.development-icon {
+    margin: 20px 0 0 0;
+    padding: 10px;
+    width: 30px;
+    /* background-color: rgba(93,23,234,255); */
+    /* border-radius: 20px ; */
+
+}
+
+/* -------------------------------------- */
+.featured {
+    background-color: #CFCBF2;
+    text-align: center;
+    padding: 40px;
+    margin-top: 2px;
+
+}
+
+.featured-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.featured h2 {
+    margin-bottom: 30px; 
+    font-family: arial;
+}
+.project-card {
+    background-color: #fff;
+    height: 300px;
+    width: 250px;
+    border-radius: 10px;
+    max-width: 350px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-header {
+    background-color: #f5f7ff;
+    padding: 20px;
+    text-align: center;
+}
+
+.project-title {
+    color: var(--pr-color);
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.project-description {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.project-footer {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: #f5f0ff;
+    color: var(--pr-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
